@@ -11,13 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `BD061` DEFAULT CHARACTER SET utf8 ;
+USE `BD061` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Semestre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Semestre` (
+CREATE TABLE IF NOT EXISTS `BD061`.`Semestre` (
   `idSemestre` INT NOT NULL,
   `ano` YEAR NOT NULL,
   `semestre` INT(1) NOT NULL,
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
+CREATE TABLE IF NOT EXISTS `BD061`.`Aluno` (
   `idAluno` INT NOT NULL,
   `matriculaAluno` VARCHAR(45) NOT NULL,
   `Semestre_idSemestre` INT NOT NULL,
@@ -47,7 +47,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Disciplina`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Disciplina` (
+CREATE TABLE IF NOT EXISTS `BD061`.`Disciplina` (
   `idDisciplina` INT NOT NULL,
   `nomeDisciplina` VARCHAR(45) NOT NULL,
   `sigla` VARCHAR(5) NOT NULL,
@@ -58,7 +58,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Materia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Materia` (
+CREATE TABLE IF NOT EXISTS `BD061`.`Materia` (
   `idMateria` INT NOT NULL,
   `Disciplina_idDisciplina` INT NOT NULL,
   `Semestre_idSemestre` INT NOT NULL,
@@ -85,7 +85,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Chamada`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Chamada` (
+CREATE TABLE IF NOT EXISTS `BD061`.`Chamada` (
   `idChamada` INT NOT NULL,
   `Materia_idMateria` INT NOT NULL,
   `Aluno_idAluno` INT NOT NULL,
