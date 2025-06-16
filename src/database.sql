@@ -7,10 +7,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema BD061
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema BD061
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `BD061` DEFAULT CHARACTER SET utf8 ;
 USE `BD061` ;
 
@@ -20,8 +16,8 @@ USE `BD061` ;
 CREATE TABLE IF NOT EXISTS `BD061`.`Periodo` (
   `idPeriodo` INT NOT NULL AUTO_INCREMENT,
   `periodo` VARCHAR(6) NOT NULL,
-  PRIMARY KEY (`idPeriodo`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`idPeriodo`)
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `BD061`.`Aluno`
@@ -39,18 +35,18 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Aluno` (
     FOREIGN KEY (`Periodo_idPeriodo`)
     REFERENCES `BD061`.`Periodo` (`idPeriodo`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `BD061`.`Disciplina`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Disciplina` (
   `idDisciplina` INT NOT NULL AUTO_INCREMENT,
-  `nomeDisciplina` VARCHAR(45) NOT NULL,
-  `sigla` VARCHAR(5) NOT NULL,
-  PRIMARY KEY (`idDisciplina`))
-ENGINE = InnoDB;
+  `nomeDisciplina` VARCHAR(50) NOT NULL,
+  `sigla` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idDisciplina`)
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `BD061`.`Materia`
@@ -74,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Materia` (
     FOREIGN KEY (`Periodo_idPeriodo`)
     REFERENCES `BD061`.`Periodo` (`idPeriodo`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `BD061`.`Chamada`
@@ -102,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Chamada` (
     FOREIGN KEY (`Aluno_idAluno`)
     REFERENCES `BD061`.`Aluno` (`idAluno`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
