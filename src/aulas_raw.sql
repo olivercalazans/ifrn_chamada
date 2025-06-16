@@ -1,0 +1,22 @@
+CREATE TABLE aulas_raw (
+  idaula INT,
+  iddiario INT,
+  data DATE,
+  diasemana VARCHAR(20),
+  numaulas INT,
+  conteudo TEXT,
+  idchamada INT,
+  container VARCHAR(100),
+  marcacaoentrada VARCHAR(20),
+  marcacaosaida VARCHAR(20),
+  periodo VARCHAR(20),
+  matricula VARCHAR(20),
+  nome VARCHAR(100),
+  iddisciplina INT,
+  sigladisciplina VARCHAR(20),
+  nomedisciplina VARCHAR(100),
+  idhorario INT,
+  horarioinicio VARCHAR(20),
+  horariofim VARCHAR(20),
+  tolerancia INT
+);
