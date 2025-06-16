@@ -18,17 +18,16 @@ USE `BD061` ;
 -- Table `BD061`.`Periodo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Periodo` (
-  `idPeriodo` INT NOT NULL,
+  `idPeriodo` INT NOT NULL AUTO_INCREMENT,
   `periodo` VARCHAR(6) NOT NULL,
   PRIMARY KEY (`idPeriodo`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `BD061`.`Aluno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Aluno` (
-  `idAluno` INT NOT NULL,
+  `idAluno` INT NOT NULL AUTO_INCREMENT,
   `matriculaAluno` VARCHAR(45) NOT NULL,
   `Periodo_idPeriodo` INT NOT NULL,
   `nomeAluno` VARCHAR(45) NOT NULL,
@@ -43,23 +42,21 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Aluno` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `BD061`.`Disciplina`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Disciplina` (
-  `idDisciplina` INT NOT NULL,
+  `idDisciplina` INT NOT NULL AUTO_INCREMENT,
   `nomeDisciplina` VARCHAR(45) NOT NULL,
   `sigla` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`idDisciplina`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `BD061`.`Materia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Materia` (
-  `idMateria` INT NOT NULL,
+  `idMateria` INT NOT NULL AUTO_INCREMENT,
   `Disciplina_idDisciplina` INT NOT NULL,
   `Periodo_idPeriodo` INT NOT NULL,
   `inicio` TIME NOT NULL,
@@ -81,12 +78,11 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Materia` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `BD061`.`Chamada`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BD061`.`Chamada` (
-  `idChamada` INT NOT NULL,
+  `idChamada` INT NOT NULL AUTO_INCREMENT,
   `Materia_idMateria` INT NOT NULL,
   `data` DATE NOT NULL,
   `feriado_ou_sabado` TINYINT(1) NOT NULL,
@@ -94,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Chamada` (
   `Aluno_idAluno` INT NOT NULL,
   `entrada` TIME NULL,
   `saida` TIME NULL,
-  `tolerancia` INT NOT NULL,
   PRIMARY KEY (`idChamada`),
   INDEX `fk_Chamada_Materia1_idx` (`Materia_idMateria` ASC),
   INDEX `fk_Chamada_Aluno1_idx` (`Aluno_idAluno` ASC),
@@ -109,7 +104,6 @@ CREATE TABLE IF NOT EXISTS `BD061`.`Chamada` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
