@@ -27,7 +27,7 @@ BEGIN
     -- Localiza aluno
     SELECT A.idAluno INTO idAluno
     FROM Aluno A
-    WHERE A.container = CONCAT('CONTAINER0', LPAD(container, 1, '0'))
+    WHERE A.container = CAST(container AS CHAR)
     LIMIT 1;
 
     IF idAluno IS NULL THEN
@@ -39,11 +39,11 @@ BEGIN
 
         -- Ação 0: consulta se há aula no horário
         IF acao = 0 THEN
-            SELECT 
+            SELECT
                 M.idMateria, D.sigla, M.inicio, M.fim,
                 ADDTIME(M.fim, '00:15:00'),
                 C.entrada, C.saida
-            INTO 
+            INTO
                 idMateria, siglaTurma, inicioChamada, fimChamada, fimTolerancia,
                 existeEntrada, existeSaida
             FROM Chamada C
@@ -120,7 +120,7 @@ BEGIN
 
         -- Ação 3: relatório
         ELSEIF acao = 3 THEN
-            SELECT 
+            SELECT
                 C.data AS DataAula,
                 C.numAulas AS NumAulas,
                 CASE DAYOFWEEK(C.data)
